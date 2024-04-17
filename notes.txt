@@ -1,0 +1,5 @@
+## FRONT END
+
+# to run the project
+- move the terminal (cd) to app folder
+- run: npm start
