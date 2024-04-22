@@ -2,7 +2,9 @@ import './Navbar.css';
 function Navbar(){
     return (
         <div className="navbar">
-            <h1>Menu will be here!</h1>
+            <h1>Market 🛒</h1>      
+            <input type='text'></input>
+            <button>Search</button>
         </div>
     )
 }

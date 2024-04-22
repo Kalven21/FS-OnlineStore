@@ -9,7 +9,7 @@ function QuantityPicker(){
         setQuantity(value);
     }
     function decrease(){
-        if(quantity >=1){
+        if(quantity > 1){
             let value = quantity - 1;
             setQuantity(value);
         }else{
@@ -20,7 +20,7 @@ function QuantityPicker(){
 
     return(
     <div className="qt-picker">
-        <button onClick={decrease}>-</button>
+        <button disabled={quantity ==1} onClick={decrease}>-</button>
         <label>{quantity}</label>
         <button onClick={increase}>+</button>
     </div>

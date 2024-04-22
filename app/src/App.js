@@ -2,17 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import QuantityPicker from './components/QuantityPicker';
+import Catalog from './pages/Catalog';
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to my super store!!!!</h1>
-    
     <Navbar />
-    <Navbar></Navbar>
-    <QuantityPicker />
-
+    <h1>Welcome to my super store!!!!</h1>
+    <Catalog />
     <Footer />
     </div>
   );
