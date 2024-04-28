@@ -26,14 +26,14 @@ function ShoppingList(){
             <h1>Your Shopping List</h1>
             <div className="rowInfo">
                 <input onChange={handleChange} type="text" />
-                <button onClick={add()}>Add</button>
+                <button onClick={add}>Add</button>
             </div>
 
             <h2></h2>
             <h3></h3>
 
                 <div className="list">
-                    <label className="info"{list.length}></label>
+                    <label className="info">{list.length}</label>
                     {list.map((item) => (
                     <li key={item}>{item}</li>
                     ))}

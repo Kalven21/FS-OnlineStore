@@ -1,67 +1,72 @@
+import { useEffect , useState} from "react";
 import Product from "../components/Product";
+import DataService from '../services/DataService';
 import "./Catalog.css";
 
 function Catalog (){
-    
-    const products = [
-        {
-            title: 'Apple',
-            price: 2.45,
-            image: "apples.jpg",
-            category: "Fruit",
-            _id: "apvlesgru"
-        },
-        {
-            title: 'Cereal',
-            price: 5.93,
-            image: "cereal.jpg",
-            category: "Cereal",
-            _id: "dibnwust"
-        },
-        {
-            title: 'Coffe',
-            price: 4.23,
-            image: "coffe.jpg",
-            category: "Coffe",
-            _id: "flpwmsia"
-        },
-        {
-            title: 'Hersheys',
-            price: 3.76,
-            image: "hershey's.jpg",
-            category: "Chocolate",
-            _id: "ekvinrh"
-        },
-        {
-            title: 'Soap',
-            price: 5.23,
-            image: "soap.jpg",
-            category: "Cleaning",
-            _id: "glsigbet"
-        },
-        {
-            title: 'Television',
-            price: 201.43,
-            image: "television.jpg",
-            category: "Electronic",
-            _id: "dlbuensu"
-        },
-        {
-            title: 'Tomato',
-            price: 1.43,
-            image: "tomato.jpg",
-            category: "Vegetable",
-            _id: "bisnrghs"
-        },
-    ];
-        
-    
+    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [visibleProducts, setVisibleProducts] = useState([]);
+
+    function loadCatalog(){
+        const prods = DataService.getProducts();
+        setProducts(prods);
+        setVisibleProducts(prods);
+    }
+
+    function loadCategories(){
+        const cats = DataService.getCategories();
+        setCategories(cats);
+    }
+
+    //is called when the component loads
+    useEffect(function(){
+        loadCatalog();
+        loadCategories();
+    }, []);
+
+    function filter(cat){
+        // pick some from products => visibleProducts
+        let filterProds = products.filter(prod => prod.category ==cat)
+        setVisibleProducts(filterProds);
+    }
+
+    function clearFilter(){
+        setVisibleProducts(products);
+    }
+    function searchByText(e){
+        let text = e.target.value;
+        //filter where product title is equal to text
+        let filterProds = products.filter(prod => prod.title.toLowerCase().includes(text.toLowerCase()))
+        setVisibleProducts(filterProds);
+    }
+
     return(
         <div className="catalog">
             <h2>Check our amazing catalog!</h2>
         
+        <div>
+            <div className="categories">
+                <button className="btn" onClick={clearFilter}>All</button>
+                {categories.map(cat => 
+                <button className="btn" onClick={() => filter(cat) } 
+                key={cat}>{cat}
+                </button>)}
+            </div>
+
+            <div className="search">
+                <input 
+                onChange={searchByText}
+                type="search" 
+                className="form-control"
+                placeholder='Search...'>
+                </input>
+            </div>
+        </div>
+
+
             <div className="products">
-                {products.map( prod => <Product key={prod._id} data={prod} />)}
+                {visibleProducts.map( prod => <Product key={prod._id} data={prod} />)}
             </div>
         </div>
     );

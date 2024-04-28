@@ -1,0 +1,22 @@
+.content{
+    background-color: antiquewhite;
+    width: 70rem;
+    margin: auto;
+    margin-bottom: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+.home h1{
+    font-size: 2rem;
+    color:rgb(129, 108, 82);
+    text-align: center;
+}
+.sections{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+img{
+    max-height: 13rem;
+    max-width: 20rem;
+}
