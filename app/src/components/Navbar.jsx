@@ -1,7 +1,17 @@
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
+import DataContext from '../content/DataContext';
+import Cart from './../pages/Cart';
+
 function Navbar(){
+    
+    let user = useContext(DataContext).user;
+    let cart = useContext(DataContext).cart;
+    
+    
     return (
+
         <nav className="navbar row">
             <div className="navbar row">
                 <Link className='center nav-link title' to='/'>    
@@ -34,8 +44,12 @@ function Navbar(){
                                 Admin
                             </Link>
                         </li>
+                        <button className=''>
+                            {user.name}
+                        </button>
                         <li className='px'>
                             <Link className='nav-link' to="/cart">
+                                <span>{cart.length}</span>
                                 Cart
                             </Link>
                         </li>
