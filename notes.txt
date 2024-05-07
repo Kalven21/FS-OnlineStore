@@ -3,3 +3,12 @@
 # to run the project
 - move the terminal (cd) to app folder
 - run: npm start
+
+## BACKEND END
+
+# create a venv
+py -m venv venv
+
+# activate venv
+windows:
+venv\Scripts\activate
