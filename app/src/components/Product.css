@@ -14,3 +14,13 @@ h5{
     height: 200px;
     max-width: 300px;
 }
+.controls button{
+    font-weight: bold;
+    margin: 0 5px;
+    border: 1px solid rgb(87, 188, 255);
+    background-color: rgb(87, 188, 255);
+    color: aliceblue;
+    border-radius: 8px;
+    height: 2rem;
+    width: 3rem;
+}

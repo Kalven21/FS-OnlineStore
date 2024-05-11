@@ -1,9 +1,8 @@
 .navbar{
     color: rgb(255, 255, 255);
     background-color: rgb(87, 188, 255);
-    justify-content: space-between;
     height: 4rem;
-    padding: 0 0 10px 0;
+    padding: 10px
 }
 .navbar input, button{
     height: 2rem;
@@ -14,7 +13,6 @@
 }
 .center{
     display: flex;
-    justify-content: center;
     align-items: center;  
 }
 .px{
@@ -27,4 +25,20 @@
 }
 .title{
     font-size: 40px;
+}
+.parts{
+    margin-left: auto;
+    width: 50%;
+}
+.parts button{
+    margin-left: auto;
+}
+.lis{
+    margin-left: auto;
+}
+.navbar button{
+    background-color: blanchedalmond;
+    font-size: 16px;
+    border-radius: 8px;
+    border: .5px solid blanchedalmond;
 }

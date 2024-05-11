@@ -9,15 +9,14 @@ function Navbar(){
     let user = useContext(DataContext).user;
     let cart = useContext(DataContext).cart;
     
-    
     return (
 
-        <nav className="navbar row">
+        <nav>
             <div className="navbar row">
                 <Link className='center nav-link title' to='/'>    
-                    Market          
+                    Market 🛒         
                 </Link>
-                <div className='center'>
+                <div className='parts center'>
                     <ul className='px row spaceB'>
                         <li className='px'>
                             <Link className='nav-link' aria-current="page" to="/">
@@ -44,16 +43,15 @@ function Navbar(){
                                 Admin
                             </Link>
                         </li>
-                        <button className=''>
-                            {user.name}
-                        </button>
-                        <li className='px'>
-                            <Link className='nav-link' to="/cart">
-                                <span>{cart.length}</span>
-                                Cart
-                            </Link>
-                        </li>
                     </ul>
+                    <li className='lis'>
+                        <Link className='nav-link' to="/cart">
+                            <span>Cart {cart.length}</span>
+                        </Link>
+                    </li>
+                    <button className=''>
+                        {user.name}
+                    </button>
                 </div>
             </div>
         </nav>

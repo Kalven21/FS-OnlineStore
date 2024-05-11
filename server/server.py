@@ -2,10 +2,12 @@ from flask import Flask, request, abort
 import json
 from config import db
 from bson import ObjectId
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app) #WARNING: this disables CORS protection
 
-                #products
+#products
 @app.get('/')
 def home():
     return "This is an API. You shouldn't be here."
@@ -105,7 +107,7 @@ def delete_coupons(id):
 # get /api/coupons/<code> 
 # db.coupons.find({"code": code}) // []
 # db.coupons.find_one({"code": code}) // dict
-@app.get("/api/coupon/<code")
+@app.get("/api/coupon/<code>")
 def get_coupon(code):
     #more than one
     #coupons = db.coupons.find({"code": code})

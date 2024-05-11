@@ -1,3 +1,7 @@
+import axios from 'axios';
+import Product from './../components/Product';
+
+
 const products = [
     {
         title: "Apple",
@@ -52,14 +56,23 @@ const products = [
 
 
 class DataService{
-    getProducts(){
-        return products;
-    }
-    getCategories(){
-        return['food', 'electronics','cleaning','toys','stationary']
-    }
-    saveProducts(){
+    serverURL = "http://127.0.0.1:5000/api";
 
+    async getProducts(){
+        // todo: retrieve prod from the server
+        let response = await axios.get(this.serverURL + "/products")
+        return response.data;
+
+        //return products;
+    }
+    async getCategories(){
+        let response = await axios.get(this.serverURL + "/categories")
+        return response.data;
+        //['food', 'electronics','cleaning','toys','stationary']
+    }
+    async saveProducts(product){
+        let response = await axios.post(this.serverURL + "/products", product);
+        return response.data;
     }
 }
 

@@ -22,10 +22,31 @@
     height: 1.5rem;
 }
 .child button{
-    align-self: flex-end;
+    margin-top: 5px;
+    background-color: rgb(87, 188, 255);
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    border: .5px solid rgb(87, 188, 255);
+}
+.but{
+    margin-left: auto;
+}
+.part{
+    display: flex;
+    margin-bottom: 5px;
+}
+.part input{
+    display: flex;
+    margin-left: auto;
+    width:80%;
 }
 .centered{
     text-align: center;
+}
+h1{
+    margin: 20px;
 }
 h2{
     margin-top: 1px;

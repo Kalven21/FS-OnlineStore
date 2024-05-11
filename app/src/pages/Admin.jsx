@@ -1,5 +1,6 @@
 import "./Admin.css";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import DataService from "../services/DataService";
 
 function Admin(){
     //coupona
@@ -32,6 +33,16 @@ function Admin(){
         image:"",
         category:""
     });
+
+    async function loadCatalog() {
+        let prods = await DataService.getProducts();
+        setProlist(prods);
+    }
+
+    useEffect(function () {
+        loadCatalog();
+    }, []);
+
     const[prolist, setProlist] = useState([]);
     
     function handleProduct(e){
@@ -45,9 +56,17 @@ function Admin(){
     function saveProduct(){
         console.log(product);
 
-        let copy = [...prolist];
-        copy.push(product);
+        // fixed the price
+        let fixedProduct = {...product}
+        fixedProduct.price = parseFloat(fixedProduct.price);
+
+        const copy = [...prolist];
+        copy.push(fixedProduct);
         setProlist(copy);
+
+        DataService.saveProducts(fixedProduct);
+
+        // call service saceProducts(fixedProduct)
     }
 
     return(
@@ -56,41 +75,51 @@ function Admin(){
             <div className="father">
                 <div className='child'>
                     <h2 className="centered">Product</h2>
-                    <div>
+                    <div className="part">
                         <label>Name:</label>
                         <input onChange={handleProduct} name="title" type="text"></input>
                     </div>
-                    <div>
+                    <div className="part">
                         <label>Price:</label>
                         <input onChange={handleProduct} name="price" type="number"></input>
                     </div>
-                    <div>
+                    <div className="part">
+                        <label>Category:</label>
+                        <input onChange={handleProduct} name="category" type="text"></input>
+                    </div>
+                    <div className="part">
+                        <label>Image:</label>
+                        <input onChange={handleProduct} name="image" type="text"></input>
+                    </div>
+                    <div className="but">
                         <button onClick={saveProduct}>Save Product</button>
                     </div>
                 </div>
 
                 <div className="child">
-                    <h2 className="centered">Cupons</h2>
-                
-                        <label>Code:</label>
-                        <input onChange={handleCoupon} name="code" type="text"></input>
-                    
-                        <label>Discount:</label>
-                        <input onChange={handleCoupon} name="discount" type="number"></input>
-                    <div>
+                    <h2 className="centered">Cupons</h2> 
+                        <div className="part">
+                            <label>Code:</label>
+                            <input onChange={handleCoupon} name="code" type="text"></input>
+                        </div>
+                        <div className="part">
+                            <label>Discount:</label>
+                            <input onChange={handleCoupon} name="discount" type="number"></input>
+                        </div>
+                    <div className="but">
                         <button onClick={saveCoupon}>Save Coupon</button>
                     </div>
                 </div>
             </div>
             <div className="results">
                 <div>
-                    <h3>This are the products that you bought: {prolist.length}</h3>
+                    <h3>This are the products that you have: {prolist.length}</h3>
                     <ul className="list">
                         {prolist.map(prod => <li key={prod.title}>{prod.title} - {prod.price}</li>)}
                     </ul>
                 </div>
                 <div>
-                    <h3>This are the code that you used: {list.length}</h3>
+                    <h3>This are the code that you have: {list.length}</h3>
                     <ul className="list">
                         {list.map(cp => <li key={cp.code}>{cp.code} - {cp.discount}</li>)}
                     </ul>
