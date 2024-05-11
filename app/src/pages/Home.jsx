@@ -21,6 +21,15 @@ function Home(){
                     </div>
                 </div>
             </div>
+            <div className="blocks">
+                <div className="L">
+                    <h3>Lorem, ipsum dolor.</h3>
+                    <text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit consequatur itaque labore reprehenderit, fuga excepturi modi dolores molestiae. Voluptas atque facere, inventore rem dolorem dignissimos rerum explicabo eveniet fugit sed? Eaque ut provident odit dignissimos perferendis, ipsa eius laudantium animi?</text>
+                </div>
+                <div className="R">
+                    <img src="./images/inside.jpg" />
+                </div>
+            </div>
         </div>
     );
 }

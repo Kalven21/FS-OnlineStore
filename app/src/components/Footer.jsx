@@ -3,7 +3,7 @@ function Footer(){
     return(
     <div className="footer">
         <div className="footer2">
-            <div>
+            <div className="left">
                 <h1>Footer</h1>
                 <div className= "logo">
                 <img src="./images/facebook.png" alt="Electronics"></img>
@@ -22,10 +22,10 @@ function Footer(){
                     <h5>Sell</h5>
                 </div>
             </div>
-            <div>
+            <div className="right">
                 <div className="subscribe">
                     <h2>Subscribe</h2>
-                    <input placeholder='Search...'></input>
+                    <input placeholder='Write your email...'></input>
                     <button>Subscribe</button>
                 </div>
             </div>

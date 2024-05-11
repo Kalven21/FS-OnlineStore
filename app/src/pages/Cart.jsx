@@ -7,7 +7,7 @@ function Cart(){
     
     
     return(
-        <div>
+        <div className='all'>
             <h1>Your cart</h1>
             <div className='cart'>
                 <label>Product</label>
@@ -27,7 +27,7 @@ function Cart(){
                 <label>{cp.quantity}</label>
                 <label>${cp.price * cp.quantity}</label>
                 <button>X</button>
-                </div> )}
+                </div>)}
             </div>
         </div>
     )

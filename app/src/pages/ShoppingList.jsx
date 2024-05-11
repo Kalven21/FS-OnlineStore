@@ -29,10 +29,10 @@ function ShoppingList(){
                 <button onClick={add}>Add</button>
             </div>
 
-            <h2>Take a look what you buy</h2>
+            <h2>Take a look what you bought</h2>
             
             <div className="list">
-                <label className="info">{list.length}</label>
+                <label className="infoz">{list.length}</label>
                 {list.map((item) => (
                 <li key={item}>{item}</li>
                 ))}

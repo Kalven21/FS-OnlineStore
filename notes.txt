@@ -12,3 +12,17 @@ py -m venv venv
 # activate venv
 windows:
 venv\Scripts\activate
+
+# deactivate venv
+deactivate
+
+after activation to install packages
+    - install package (py -m pip install flask mongoose pymongo "pymongo[srv]")
+    - install certifi (py - pip install certifi)
+    - run server (flask --app server --debug run)
+
+
+    steps
+    - activate venv on server (venv\Scripts\activate)
+    - run server (flask --app server --debug run)
+    - on app run: npm start
